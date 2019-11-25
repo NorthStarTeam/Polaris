@@ -1,7 +1,7 @@
 import React from 'react';
 import { UserProvider } from './components/UserState';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import SignUp from './components/SignUp';
+import Home from './components/Home';
 import Profile from './components/Profile';
 
 function App() {
@@ -11,8 +11,8 @@ function App() {
       <Route path="/profile" component={Profile} exact /> */}
       <BrowserRouter>
         <Switch>
-          <Route path="/" component={SignUp} exact />
-          <Route path="/SignUp" component={Profile} exact />
+          <Route path="/" component={Home} exact />
+          <Route path="/profile" component={Profile} exact />
         </Switch>
       </BrowserRouter>
     </UserProvider>

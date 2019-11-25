@@ -7,7 +7,7 @@ const Profile = () => {
   //   <Redirect to="/profile" />;
   return (
     <div>
-      <MainNav />
+      {/* <Link to="/profile">Home</Link> */}
       <p>Profile</p>
     </div>
   );
