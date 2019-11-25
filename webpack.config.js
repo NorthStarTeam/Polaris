@@ -8,11 +8,11 @@ module.exports = {
         filename: 'bundle.js'
     },
     devServer: {
-        publicPath: '/build/',
+        publicPath: '/polaris/',
         hot: true,
         port: 8080,
         proxy: [{
-          context: ['/getdata' ,'/newprice'],
+          context: [],
           target: 'http://localhost:3000'
           }]
     },
