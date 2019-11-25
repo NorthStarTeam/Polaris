@@ -4,8 +4,10 @@
   "description": "Task Management tool for job hunting.",
   "main": "./server/server.js",
   "scripts": {
+    "build": "webpack",
     "test": "jest",
-    "start": "node server.js"
+    "start": "node server/server.js",
+    "start2": "react-scripts start"
   },
   "repository": {
     "type": "git",
@@ -23,5 +25,22 @@
   "bugs": {
     "url": "https://github.com/NorthStarTeam/Polaris/issues"
   },
-  "homepage": "https://github.com/NorthStarTeam/Polaris#readme"
+  "homepage": "https://github.com/NorthStarTeam/Polaris#readme",
+  "dependencies": {
+    "path": "^0.12.7",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-router": "^5.1.2"
+  },
+  "devDependencies": {
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "@babel/core": "^7.6.3",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.2.0",
+    "style-loader": "^1.0.0",
+    "webpack-dev-server": "^3.8.2"
+  }
 }
