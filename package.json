@@ -1,0 +1,27 @@
+{
+  "name": "polaris",
+  "version": "1.0.0",
+  "description": "Task Management tool for job hunting.",
+  "main": "./server/server.js",
+  "scripts": {
+    "test": "jest",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NorthStarTeam/Polaris.git"
+  },
+  "keywords": [
+    "express",
+    "sql",
+    "react",
+    "node",
+    "jobs"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NorthStarTeam/Polaris/issues"
+  },
+  "homepage": "https://github.com/NorthStarTeam/Polaris#readme"
+}
