@@ -8,7 +8,9 @@ const Home = () => {
   return (
     <div>
       <h1>We on Home Page</h1>
-      <Link to="/profile">Go to profile</Link>
+      <Link to="/login">Go to Login</Link>
+      <br></br>
+      <Link to="/signup">Go to Signup</Link>
     </div>
   );
 };
