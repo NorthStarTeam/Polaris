@@ -6,7 +6,7 @@ const mainNav = props => (
     <nav>
       <ul>
         <li>
-          <NavLink to="/login">login button</NavLink>
+          <NavLink to="/signup">SignUp button</NavLink>
         </li>
         <li>
           <NavLink to="/profile">profile button</NavLink>
