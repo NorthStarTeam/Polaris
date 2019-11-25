@@ -5,7 +5,20 @@ const SignUp = () => {
   return (
     <div>
       <h1>We create new user account</h1>
-      {/* <Link to="/profile">Go to profile</Link> */}
+      
+      <div className = 'signup-box'>
+        <form className = 'signup-form'>
+
+          {/* Input Signup Username */}
+          <input className='userName' name='username' placeholder='Username' />
+          
+          {/* Input Signup Password */}
+          <input className='password' name='password' placeholder='Password' />
+
+          {/* Submit Signup Request */}
+          <input className='signup-button' type='submit' value='Signup'></input>
+        </form>
+      </div>
     </div>
   );
 };
