@@ -16,7 +16,7 @@ userController.createUser = (req, res, next) => {
     .then(() => {
       res.cookie('isLoggedIn', true, { httpOnly: true })
       res.cookie('username', username, { httpOnly: true })
-      return next()
+      next()
     })
     .catch(err => console.error(`User ${username} could not be created`));
 };
@@ -58,15 +58,14 @@ userController.verifyUser = function (req, res, next) {
     .then(rows => {
       console.log(rows)
       if(rows.length !== 0){
-        console.log('Hit verify user ----> Row', row.length);
+        console.log('Hit verify user ----> Row', rows.length);
         res.cookie('isLoggedIn', true, { httpOnly: true });
         res.cookie('username', username, { httpOnly: true });
         return next();
       }else{
         res.send('Invalid username or password');
       }
-    })
-    .catch(err => console.error(`User ${username} could not be verified`));
+    }).catch(e => console.error(`User ${username} could not be verified: Error: ${e}`));
 };
 
 module.exports = userController;
