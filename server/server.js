@@ -13,14 +13,13 @@ app.get('/', (req, res, next) => {
 });
 
 //serve the bundle.js as a static file first
-app.use(
-  '/polaris',
-  express.static(path.resolve(__dirname, '../polaris')),
-  (req, res, next) => {
-    console.log('served static bundle', path.resolve(__dirname, '../polaris'));
-    // next();
-  }
-);
+app.use(express.static(path.resolve(__dirname, '../polaris')));
+
+// need to add middleware, userControl function
+app.post('/userlogin', (req, res) => {
+  console.log('user logged-in');
+  res.status(200).send('inside server login');
+});
 
 //error out if nothing is working
 app.use('*', (req, res, next) => {

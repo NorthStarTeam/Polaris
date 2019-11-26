@@ -3,37 +3,33 @@ import { Link } from 'react-router-dom';
 
 const Login = () => {
   const [name, setName] = useState('');
-  const [pass, setPass] = useState('');
+  const [password, setPass] = useState('');
 
   const handleInputName = event => {
-    console.log(event, 'EVENT TARGET', event.target.value);
-    // this.setState({ name: event.target.value });
+    console.log('EVENT name', event.target.value);
+    setName({ name: event.target.value });
   };
 
-  const handleInputPassword = event => {
-    console.log(event, 'EVENT TARGET', event.target.value);
-    // this.setState({ password: event.target.value });
+  const handleInputPass = event => {
+    console.log('EVENT pass', event.target.value);
+    setPass({ password: event.target.value });
   };
 
   const handleSubmit = e => {
     event.preventDefault();
-    console.log('e.target', e.target);
-    //   fetch('/login', {
-    //     headers: { 'Content-type': 'application/json' },
-    //     method: 'POST',
-    //     body: JSON.stringify({
-    //       name: this.state.name,
-    //       roomName: this.state.roomName,
-    //       password: this.state.password,
-    //       socketId: this.state.socketId,
-    //     }),
-    //   })
-    //     .then(db => db.json())
-    //     .then(res => {
-    //       console.log(`${this.state.name} is in room: ${this.state.roomName}`);
-    //       this.setState({ loggedin: res });
-    //     });
+    fetch('/userlogin', {
+      headers: { 'Content-type': 'application/json' },
+      method: 'POST',
+      body: JSON.stringify({ name, password }),
+    })
+      .then(db => db.json())
+      .then(res => {
+        console.log(`username is: ${name}`);
+        console.log('res', res);
+        // this.setState({ loggedin: res });
+      });
   };
+
   return (
     <div>
       <h1>We Login to Profile</h1>
@@ -42,17 +38,17 @@ const Login = () => {
         <form onSubmit={e => handleSubmit(e)} className="login-form">
           <input
             className="login-input"
-            placeholder="username"
+            placeholder="Username"
             type="text"
             // value={props.name}
             onChange={handleInputName}
           ></input>
-
-          {/* Password Input */}
           <input
             className="login-input"
-            placeholder="password"
+            placeholder="Password"
             type="text"
+            // value={props.name}
+            onChange={handleInputPass}
           ></input>
 
           {/* Submit Login Request */}
@@ -66,39 +62,26 @@ const Login = () => {
 
 export default Login;
 
-// <div className="loginBox">
-//   <form onSubmit={props.handleSubmit}>
-//     <div className="inputBoxOnLoginComponent">
-//       <label>
-//         {/* Username input field */}
-//         <input
-//           placeholder="Username"
-//           type="text"
-//           value={props.name}
-//           onChange={props.handleChangeName}
-//         />
-//       </label>
-//       <label>
-//         {/* Room name input field */}
-//         <input
-//           placeholder="Room Name"
-//           type="text"
-//           value={props.roomName}
-//           onChange={props.handleChangeRoom}
-//         />
-//       </label>
-//       <label>
-//         {/* Password input field */}
-//         <input
-//           placeholder="Password"
-//           type="text"
-//           value={props.password}
-//           onChange={props.handleChangePassword}
-//         />
-//       </label>
-//       {/* Main submit button */}
-//       <input id="loginButton" type="submit" value="Login" />
-//     </div>
-//   </form>
-//   <img id="scribbleLogo" src="scribble-svgrepo-com.svg" alt="" />
-// </div>;
+// handleSubmit(event) {
+//     const data = {username: this.state.username, password: this.state.password};
+//   // console.log('am I here in this universe');
+//   fetch('http://localhost:3000/login',{
+//       method:'POST',
+//       headers:{
+//           'Content-Type':'application/json'
+//       },
+//       body:JSON.stringify(data)
+//   }).then(response => response.json())
+//   .then(data => {
+//       // console.log("we are outside the conditional ", data);
+
+//       if(data.username){
+//           this.setState({ redirectToGame: true })
+//       } else {
+//           alert('that was a bad combo')
+//       }
+
+//   });
+
+//   event.preventDefault();
+// }
