@@ -20,6 +20,8 @@ userController.verifyUser,
   res.redirect('/users');
 });
 
+app.post('/logout', userController.logOut);
+
 app.post('/signup',
 userController.checkUsernameAvailability,
 userController.createUser,
