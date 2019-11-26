@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header Header renders correctly 1`] = `
+Array [
+  " ",
+  <div
+    className="div-ul"
+  >
+    <ul
+      className="link-left"
+    >
+      <li>
+        <a
+          href="/"
+          onClick={[Function]}
+        >
+          Polaris
+        </a>
+      </li>
+      <li>
+        <a
+          href="/about"
+          onClick={[Function]}
+        >
+          About
+        </a>
+      </li>
+    </ul>
+    <ul
+      className="link-right"
+    >
+      <li>
+        <a
+          href="/signup"
+          onClick={[Function]}
+        >
+          Join
+        </a>
+      </li>
+      <li>
+        <a
+          href="/login"
+          onClick={[Function]}
+        >
+          Login
+        </a>
+      </li>
+    </ul>
+  </div>,
+  " ",
+]
+`;
