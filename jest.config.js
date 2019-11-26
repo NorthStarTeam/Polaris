@@ -4,5 +4,8 @@ module.exports = {
   transformIgnorePatterns: [
     '/node_modules/(?!@babel\/runtime)'
   ],
+  setupFilesAfterEnv: [
+    "<rootDir>/enzyme.config.js"
+  ]
   
 }
