@@ -32,7 +32,7 @@ const Login = () => {
 
   return (
     <div>
-      <h1>We Login to Profile</h1>
+      <h1>Log In</h1>
 
       <div className="login-box">
         <form onSubmit={e => handleSubmit(e)} className="login-form">
@@ -55,7 +55,7 @@ const Login = () => {
           <input className="login-button" type="submit" value="Login"></input>
         </form>
       </div>
-      <Link to="/signup">Need an account? Sign Up here</Link>
+      {/* <Link to="/signup">Need an account? Sign Up here</Link> */}
     </div>
   );
 };

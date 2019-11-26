@@ -1,17 +1,31 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Home = () => {
+const Header = () => {
   return (
-    <div className="div-home">
-      <h1>All-in-One</h1>
-      <h3>Manage Personal and Professional Relationships</h3>
-      <h3>Track Jobs, Network, Track Companies</h3>
+    <div className="div-ul">
+      <ul className="link-left">
+        <li>
+          <Link to="/">Polaris</Link>
+        </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+      </ul>
+
+      <ul className="link-right">
+        <li>
+          <Link to="/signup">Join</Link>
+        </li>
+        <li>
+          <Link to="/login">Login</Link>
+        </li>
+      </ul>
     </div>
   );
 };
 
-export default Home;
+export default Header;
 
 // <div class="card card-body text-center">
 //   <h1>

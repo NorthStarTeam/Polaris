@@ -35,6 +35,13 @@ app.get('/', (req, res) =>
   res.status(200).sendFile(path.join(__dirname, '../index.html'))
 );
 
+// serving style.css
+app.use('/style', (req, res) => {
+  res
+    .set({ 'Content-Type': 'text/css', charset: 'UTF-8' })
+    .status(200)
+    .sendFile(path.resolve(__dirname, '../client/style.css'));
+});
 
 app.use('*', userController.isLoggedIn);
 
