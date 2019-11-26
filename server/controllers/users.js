@@ -56,7 +56,7 @@ userController.verifyUser = function(req, res, next) {
     .then(rows => {
       console.log('rows => ', rows.length);
       if (rows.length !== 0) {
-        console.log('Hit verify user ----> Row', row.length);
+        console.log('Hit verify user ----> Row', rows.length);
         res.cookie('isLoggedIn', true, { httpOnly: true });
         res.cookie('username', username, { httpOnly: true });
         return next();

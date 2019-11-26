@@ -30,18 +30,14 @@ ul {
 }
 
 li {
+  text-decoration: none;
   display: inline-block;
   padding-left: 15px;
   list-style: none;
   font-size: 18px;
 }
 
-/* ul li a {
-  color: ${styles.headFontColor};
-  text-decoration: none;
-  font-size: 15px;
-  font-family: sans-serif;
-}
+/*
 ul li a:hover {
   color: white;
 } */
@@ -53,37 +49,21 @@ ul li a:hover {
   height: 15px;
 } */
 
-/* #signin {
+input {
+  font-size: 24px;
+  padding: 6px;
+  margin: 10px;
+  display: block;
   margin: auto;
   width: 25%;
-  padding-top: 5%;
   text-align: center;
-  background-color: #d3d3d3;
-  border: 1px solid black;
-} */
+}
 
-/* #submit-button {
-  margin-bottom: 10px;
-} */
-
-/* input {
-  margin-bottom: 10px;
-} */
-
-/* #create {
-  margin: 0 auto;
-  width: 50%;
-  text-align: center;
-  margin-top: 3%;
-} */
-
-/* 
-#container {
-  position: relative;
-  margin: 2em auto;
-  width: 800px;
-  max-width: 80%;
-} */
+input .login-button {
+  height: 50px;
+  font-size: 24px;
+  padding: 6px;
+}
 
 /* #save {
   background-color: #4c50af;
@@ -97,8 +77,12 @@ ul li a:hover {
   transform: translate3d(1px, -5px, 0px);
 } */
 
-/* .row input {
-  width: 80%;
+/* 
+#container {
+  position: relative;
+  margin: 2em auto;
+  width: 800px;
+  max-width: 80%;
 } */
 
 /* button {
@@ -120,10 +104,7 @@ button:hover {
   transform: translate3d(0px, -5px, 0px);
 } */
 
-/* input {
-  padding: 8px;
-}
-
+/*
 #desc {
   list-style: none;
   border: 1px solid #dfdfdf;

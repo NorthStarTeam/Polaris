@@ -55,10 +55,15 @@ app.get('/users', (req, res) => {
     });
 });
 
-//error out if nothing is working
-app.use('*', (req, res, next) => {
-  console.log(`couldn't find anything`);
-  res.status(404).send(`<h1>Page Doesn't Exist</h1>`);
+// //error out if nothing is working
+// app.use('*', (req, res, next) => {
+//   console.log(`couldn't find anything`);
+//   res.status(404).send(`<h1>Page Doesn't Exist</h1>`);
+// });
+
+app.all((err, req, res, next) => {
+  console.log('global error', err);
+  res.status(500).send('Internal Server Error');
 });
 
 const port = process.env.PORT || 3000;
