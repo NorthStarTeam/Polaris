@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 
 const Login = () => {
   const [username, setName] = useState('');
   const [password, setPass] = useState('');
+  const [redirect, setRedirect] = useState(false);
 
   const handleInputName = event => {
     // console.log('EVENT name', event.target.value);
@@ -22,13 +23,23 @@ const Login = () => {
       method: 'POST',
       body: JSON.stringify({ username, password }),
     })
-      .then(db => db.json())
-      .then(res => {
-        console.log(`username is: ${username}`);
-        console.log('res', res);
-        // this.setState({ loggedin: res });
+      .then(res => res.json())
+      .then(data => {
+        console.log('res from server =', data);
+        if (data.err) setRedirect(false);
+        else setRedirect(true);
       });
   };
+
+  if (redirect)
+    return (
+      <Redirect
+        to={{
+          pathname: '/profile',
+          // state: { from: location },
+        }}
+      />
+    );
 
   return (
     <div>
@@ -52,7 +63,12 @@ const Login = () => {
           ></input>
 
           {/* Submit Login Request */}
-          <input className="login-button" type="submit" value="Login"></input>
+          <input
+            id="button"
+            className="login-button"
+            type="submit"
+            value="Login"
+          ></input>
         </form>
       </div>
       {/* <Link to="/signup">Need an account? Sign Up here</Link> */}

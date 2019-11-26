@@ -1,7 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
@@ -49,20 +49,19 @@ ul li a:hover {
   height: 15px;
 } */
 
-input {
-  font-size: 24px;
-  padding: 6px;
-  margin: 10px;
-  display: block;
-  margin: auto;
-  width: 25%;
-  text-align: center;
-}
-
-input .login-button {
+#button {
   height: 50px;
   font-size: 24px;
   padding: 6px;
+}
+input {
+  align-content: center;
+  font-size: 24px;
+  padding: 6px;
+  margin: 12px;
+  display: block;
+  width: 25%;
+  text-align: center;
 }
 
 /* #save {

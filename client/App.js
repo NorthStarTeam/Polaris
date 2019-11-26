@@ -17,7 +17,7 @@ function App() {
           <Route path="/login" component={Login} exact />
           <Route path="/signup" component={SignUp} exact />
           {/* <PrivateRoute path="/protected" component={Profile} /> */}
-          {/* <Route path="/profile" component={Profile} exact /> */}
+          <Route path="/profile" component={Profile} exact />
         </Switch>
       </BrowserRouter>
     </UserProvider>

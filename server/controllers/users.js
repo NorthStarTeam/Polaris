@@ -50,22 +50,25 @@ userController.checkUsernameAvailability = function(req, res, next) {
 
 userController.verifyUser = function(req, res, next) {
   const { username, password } = req.body;
-  // console.log('Hit verify user', username, password);
+  console.log('Hit verify user', username, password);
+
   knex('users')
     .where({ username, password })
     .then(rows => {
-      console.log('rows => ', rows.length);
+      console.log('rows => ', rows);
       if (rows.length !== 0) {
         console.log('Hit verify user ----> Row', rows.length);
         res.cookie('isLoggedIn', true, { httpOnly: true });
         res.cookie('username', username, { httpOnly: true });
         return next();
       } else {
-        console.log('else =>');
-        res.send('Invalid username or password');
+        console.log('incorrect pass');
+        res.send({ err: 'Invalid username or password' });
       }
     })
-    .catch(err => console.error(`User ${username} could not be verified`));
+    .catch(e =>
+      console.error(`User ${username} could not be verified: Error: ${e}`)
+    );
 };
 
 module.exports = userController;
