@@ -1,4 +1,4 @@
-const User = require('../models/User');
+const knex = require('../models/User');
 const bcyrpt = require('bcryptjs')
 const userController = {};
 
