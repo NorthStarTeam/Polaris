@@ -15,7 +15,6 @@ exports.seed = function(knex) {
           email: 'ben.ray@gmail.com',
           stage: 1,
           next: 'Call',
-          due_date: knex.fn.now(),
         },
       ]);
     });
