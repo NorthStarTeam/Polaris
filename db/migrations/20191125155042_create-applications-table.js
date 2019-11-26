@@ -1,22 +1,25 @@
-exports.up = function(knex, Promise) {
-  let createQuery = `CREATE TABLE applications(
-    id SERIAL PRIMARY KEY NOT NULL,
-    url TEXT,
-    position TEXT,
-    company TEXT,
-    contact TEXT,
-    phone TEXT,
-    email TEXT,
-    stage INTEGER,
-    next TEXT,
-    due_date TIMESTAMP,
-    created_at TIMESTAMP,
-    updated_at TIMESTAMP
-  )`;
-  return knex.raw(createQuery);
+exports.up = async function(knex, Promise) {
+  await knex.schema.createTable('applications', table => {
+    table.increments('id').primary();
+    table
+      .integer('user_id')
+      .unsigned()
+      .references('users.id');
+    table.string('url');
+    table.string('position');
+    table.string('company');
+    table.string('contact');
+    table.string('phone');
+    table.string('email');
+    table.integer('stage');
+    table.string('next');
+    table.timestamp('due_date').defaultTo(knex.fn.now());
+    table.timestamps(true, true);
+  });
 };
 
-exports.down = function(knex, Promise) {
-  let dropQuery = `DROP TABLE applications`;
-  return knex.raw(dropQuery);
+exports.down = async function(knex, Promise) {
+  await knex.schema.dropTable('applications', table => {
+    table.dropForeign('user_id');
+  });
 };
