@@ -10,8 +10,6 @@ exports.seed = function(knex) {
           password: 'bar',
           email: 'test@polaris.co',
           name: 'polaris admin',
-          created_at: kne.fn.now(),
-          updated_at: knex.fn.now(),
         },
       ]);
     });
