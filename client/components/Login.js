@@ -2,29 +2,29 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
-  const [name, setName] = useState('');
+  const [username, setName] = useState('');
   const [password, setPass] = useState('');
 
   const handleInputName = event => {
-    console.log('EVENT name', event.target.value);
-    setName({ name: event.target.value });
+    // console.log('EVENT name', event.target.value);
+    setName(event.target.value);
   };
 
   const handleInputPass = event => {
-    console.log('EVENT pass', event.target.value);
-    setPass({ password: event.target.value });
+    // console.log('EVENT pass', event.target.value);
+    setPass(event.target.value);
   };
 
   const handleSubmit = e => {
-    event.preventDefault();
-    fetch('/userlogin', {
+    e.preventDefault();
+    fetch('/login', {
       headers: { 'Content-type': 'application/json' },
       method: 'POST',
-      body: JSON.stringify({ name, password }),
+      body: JSON.stringify({ username, password }),
     })
       .then(db => db.json())
       .then(res => {
-        console.log(`username is: ${name}`);
+        console.log(`username is: ${username}`);
         console.log('res', res);
         // this.setState({ loggedin: res });
       });
