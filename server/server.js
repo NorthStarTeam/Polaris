@@ -4,48 +4,50 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const dbConfig = require('../knexfile');
 const knex = require('knex')(dbConfig.development);
+const userController = require('./controllers/users');
 require('dotenv').config();
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+knex('users').then(rows => console.log(rows));
+// need to add middleware, userControl function
+app.post('/login', 
+userController.verifyUser,
+(req, res) => {
+  res.redirect('/users');
+});
 
 app.post('/signup',
-    userController.createUser,
-    //   cookieController.setSSIDCookie,
-    //   sessionController.startSession,
-    (req, res) => {
-        // what should happen here on successful sign up?
-        // console.log('post request successful - signup redirect')
-    });
-
-app.post('/login',
-    userController.verifyUser,
-    //   cookieController.setSSIDCookie, 
-    //   sessionController.startSession,
-    (req, res, next) => {
-        // what should happen here on successful log in?
-        // console.log('post request successful - login')
-    });
+userController.checkUsernameAvailability,
+userController.createUser,
+(req, res) => {
+  res.redirect('/users');
+});
 
 //serve the bundle.js as a static file first
 app.use(express.static(path.resolve(__dirname, '../polaris')));
+
 
 app.get('/', (req, res) =>
   res.status(200).sendFile(path.join(__dirname, '../index.html'))
 );
 
-// need to add middleware, userControl function
-app.post('/userlogin', (req, res) => {
-  console.log('user logged-in');
-  res.status(200).send('inside server login');
+
+app.use('*', userController.isLoggedIn);
+
+app.get('/users', (req, res) => {
+  let username = req.body.username || req.cookies.username
+  knex('users')
+    .where({ username })
+    .then(row => {
+      res.json(row[0])
+    })
 });
 
-app.get('/users', (req, res, next) => {
-  console.log('displaying all users');
-  knex('users').then(users => res.send(users));
-});
+
 
 //error out if nothing is working
 app.use('*', (req, res, next) => {
