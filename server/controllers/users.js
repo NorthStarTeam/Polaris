@@ -16,7 +16,7 @@ userController.createUser = (req, res, next) => {
     .then(() => {
       res.cookie('isLoggedIn', true, { httpOnly: true })
       res.cookie('username', username, { httpOnly: true })
-      next()
+      return next()
     })
     .catch(err => console.error(`User ${username} could not be created`));
 };
@@ -50,18 +50,20 @@ userController.checkUsernameAvailability = function (req, res, next) {
 }
 
 userController.verifyUser = function (req, res, next) {
-  console.log('Hit verify user');
   const { username, password } = req.body
+  console.log('Hit verify user',username, password);
+
   knex('users')
     .where({ username, password })
-    .then(row => {
-      if(row.length !== 0){
-        console.log('Hit verify user ----> Row', row.length)
-        res.cookie('isLoggedIn', true, { httpOnly: true })
-        res.cookie('username', username, { httpOnly: true })
+    .then(rows => {
+      console.log(rows)
+      if(rows.length !== 0){
+        console.log('Hit verify user ----> Row', row.length);
+        res.cookie('isLoggedIn', true, { httpOnly: true });
+        res.cookie('username', username, { httpOnly: true });
         return next();
       }else{
-        res.send('Invalid username or password')
+        res.send('Invalid username or password');
       }
     })
     .catch(err => console.error(`User ${username} could not be verified`));
