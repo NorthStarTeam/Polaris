@@ -64,6 +64,6 @@ app.use('*', (req, res, next) => {
 
 const port = process.env.PORT || 3000;
 //start running the server on the secure port from the .env file
-app.listen(port, () => console.log(`server on Port ${port}`));
+module.exports = app.listen(port, () => console.log(`server on Port ${port}`));
 
-module.exports = app
+
