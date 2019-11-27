@@ -12,7 +12,17 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-knex('users').then(rows => console.log(rows));
+// knex('users').then(rows => console.log(rows));
+
+knex('users')
+.where({ username:'foo' })
+.join('applications', 'users.id', '=', 'applications.user_id')
+.join('messages', 'applications.id', '=', 'messages.application_id')  
+.then(rows => {
+  console.log(rows)
+  // res.json(rows)
+})
+
 // need to add middleware, userControl function
 app.post('/login',
   userController.verifyUser,
@@ -53,7 +63,7 @@ app.get('/users', (req, res) => {
   knex('users')
     .where({ username })
     .join('applications', 'users.id', '=', 'applications.user_id')
-    .join('messages', 'users.id', '=', 'messages.user_id')  
+    .join('messages', 'applications.id', '=', 'messages.application_id')  
     .then(rows => {
       res.json(rows)
     })
