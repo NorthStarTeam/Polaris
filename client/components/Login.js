@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 const Login = () => {
   const [username, setName] = useState('');
@@ -7,12 +7,10 @@ const Login = () => {
   const [redirect, setRedirect] = useState(false);
 
   const handleInputName = event => {
-    // console.log('EVENT name', event.target.value);
     setName(event.target.value);
   };
 
   const handleInputPass = event => {
-    // console.log('EVENT pass', event.target.value);
     setPass(event.target.value);
   };
 
@@ -26,8 +24,11 @@ const Login = () => {
       .then(res => res.json())
       .then(data => {
         console.log('res from server =', data);
-        if (data.err) setRedirect(false);
-        else setRedirect(true);
+        if (data.err) {
+          setRedirect(false);
+          setName('Username');
+          setPass('Password');
+        } else setRedirect(true);
       });
   };
 
@@ -42,26 +43,24 @@ const Login = () => {
     );
 
   return (
-    <div>
+    <div className="div-login">
       <h1>Log In</h1>
-
       <div className="login-box">
         <form onSubmit={e => handleSubmit(e)} className="login-form">
           <input
             className="login-input"
             placeholder="Username"
             type="text"
-            // value={props.name}
+            value={username}
             onChange={handleInputName}
           ></input>
           <input
             className="login-input"
             placeholder="Password"
             type="text"
-            // value={props.name}
+            value={password}
             onChange={handleInputPass}
           ></input>
-
           {/* Submit Login Request */}
           <input
             id="button"
@@ -71,33 +70,8 @@ const Login = () => {
           ></input>
         </form>
       </div>
-      {/* <Link to="/signup">Need an account? Sign Up here</Link> */}
     </div>
   );
 };
 
 export default Login;
-
-// handleSubmit(event) {
-//     const data = {username: this.state.username, password: this.state.password};
-//   // console.log('am I here in this universe');
-//   fetch('http://localhost:3000/login',{
-//       method:'POST',
-//       headers:{
-//           'Content-Type':'application/json'
-//       },
-//       body:JSON.stringify(data)
-//   }).then(response => response.json())
-//   .then(data => {
-//       // console.log("we are outside the conditional ", data);
-
-//       if(data.username){
-//           this.setState({ redirectToGame: true })
-//       } else {
-//           alert('that was a bad combo')
-//       }
-
-//   });
-
-//   event.preventDefault();
-// }
