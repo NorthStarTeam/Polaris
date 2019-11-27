@@ -1,15 +1,14 @@
 import React, { useState, useContext } from 'react';
 import { Redirect } from 'react-router-dom';
+import { UserContext } from './AccState';
 
 const Login = () => {
-  const [username, setName] = useState('');
-  const [password, setPass] = useState('');
-  const [redirect, setRedirect] = useState(false);
+  const userObj = useContext(UserContext);
+  const { username, setName, password, setPass, isLogin, setLogin } = userObj;
 
   const handleInputName = event => {
     setName(event.target.value);
   };
-
   const handleInputPass = event => {
     setPass(event.target.value);
   };
@@ -25,14 +24,14 @@ const Login = () => {
       .then(data => {
         console.log('res from server =', data);
         if (data.err) {
-          setRedirect(false);
+          setLogin(false);
           setName('Username');
           setPass('Password');
-        } else setRedirect(true);
+        } else setLogin(true);
       });
   };
 
-  if (redirect)
+  if (isLogin)
     return (
       <Redirect
         to={{

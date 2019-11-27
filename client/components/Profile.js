@@ -8,7 +8,7 @@ const Profile = () => {
   return (
     <div>
       {/* <Link to="/profile">Home</Link> */}
-      <p>Profile</p>
+      <h1>Profile</h1>
     </div>
   );
 };

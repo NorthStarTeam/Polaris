@@ -1,28 +1,36 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { UserContext } from './AccState';
 
 const Header = () => {
-  return (
-    <div className="div-ul">
-      <ul className="link-left">
-        <li>
-          <Link to="/">Polaris</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-      </ul>
+  const userObj = useContext(UserContext);
+  const { isLogin } = userObj;
 
-      <ul className="link-right">
-        <li>
-          <Link to="/signup">Join</Link>
-        </li>
-        <li>
-          <Link to="/login">Login</Link>
-        </li>
-      </ul>
-    </div>
-  );
+  if (isLogin) {
+    return <h1>NEW HEADER</h1>;
+  } else {
+    return (
+      <div className="div-ul">
+        <ul className="link-left">
+          <li>
+            <Link to="/">Polaris</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+        </ul>
+
+        <ul className="link-right">
+          <li>
+            <Link to="/signup">Join</Link>
+          </li>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+        </ul>
+      </div>
+    );
+  }
 };
 
 export default Header;
