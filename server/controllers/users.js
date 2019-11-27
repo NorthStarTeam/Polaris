@@ -38,7 +38,7 @@ userController.isLoggedIn = function(req, res, next) {
 userController.logOut = function(req, res, next) {
   res.cookie('isLoggedIn', false, { httpOnly: true });
   res.cookie('username', '', { httpOnly: true });
-  res.send('user logged out');
+  res.send({ logout: 'user logged out' });
 };
 
 userController.checkUsernameAvailability = function(req, res, next) {
@@ -47,7 +47,7 @@ userController.checkUsernameAvailability = function(req, res, next) {
     .where({ username })
     .then(row => {
       if (row.length !== 0) {
-        res.send('Username not available');
+        res.send({ exist: 'Username not available' });
       } else {
         next();
       }

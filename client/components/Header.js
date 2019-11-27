@@ -6,20 +6,37 @@ const Header = () => {
   const userObj = useContext(UserContext);
   const { isLogin } = userObj;
 
+  const headerLeft = () => {
+    return (
+      <ul className="link-left">
+        <li>
+          <Link to="/">Polaris</Link>
+        </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+      </ul>
+    );
+  };
+
   if (isLogin) {
-    return <h1>NEW HEADER</h1>;
+    return (
+      <div className="div-ul">
+        {headerLeft()}
+        <ul className="link-right">
+          <li>
+            <Link to="/logout">LogOut</Link>
+          </li>
+          <li>
+            <Link to="/setting">Settings</Link>
+          </li>
+        </ul>
+      </div>
+    );
   } else {
     return (
       <div className="div-ul">
-        <ul className="link-left">
-          <li>
-            <Link to="/">Polaris</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-        </ul>
-
+        {headerLeft()}
         <ul className="link-right">
           <li>
             <Link to="/signup">Join</Link>

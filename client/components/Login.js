@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Redirect } from 'react-router-dom';
 import { UserContext } from './AccState';
 
@@ -22,7 +22,7 @@ const Login = () => {
     })
       .then(res => res.json())
       .then(data => {
-        console.log('res from server =', data);
+        // console.log('res from server =', data);
         if (data.err) {
           setLogin(false);
           setName('Username');
