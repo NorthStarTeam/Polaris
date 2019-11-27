@@ -61,12 +61,7 @@ const Login = () => {
             onChange={handleInputPass}
           ></input>
           {/* Submit Login Request */}
-          <input
-            id="button"
-            className="login-button"
-            type="submit"
-            value="Login"
-          ></input>
+          <input className="login-button" type="submit" value="Login"></input>
         </form>
       </div>
     </div>

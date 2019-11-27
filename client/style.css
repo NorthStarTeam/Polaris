@@ -52,18 +52,19 @@ ul li a:hover {
   height: 15px;
 } */
 
-#button {
-  height: 50px;
-  font-size: 24px;
-  padding: 6px;
-}
 input {
-  display: block;
+  display: flex;
+  justify-content: center;
   align-content: center;
   font-size: 24px;
   padding: 6px;
-  margin: 12px;
+  margin: 10px auto;
   width: 25%;
+}
+input .login-button {
+  height: 50px;
+  /* font-size: 24px;
+  padding: 6px; */
 }
 
 /* #save {
