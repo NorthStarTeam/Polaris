@@ -1,4 +1,4 @@
-import React, { useHistory } from 'react';
+import React, { useHistory, use } from 'react';
 
 const Logout = () => {
   let history = useHistory();

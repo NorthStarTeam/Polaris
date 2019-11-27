@@ -40,23 +40,11 @@ li {
   font-size: 18px;
 }
 
-/*
-ul li a:hover {
-  color: white;
-} */
-
-/* .remove {
-  display: inline-block;
-  float: right;
-  width: 15px;
-  height: 15px;
-} */
-
 input {
   display: flex;
   justify-content: center;
   align-content: center;
-  font-size: 24px;
+  font-size: 22px;
   padding: 6px;
   margin: 10px auto;
   width: 25%;
@@ -70,9 +58,21 @@ input {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 20px;
   cursor: pointer;
 }
+
+/*
+ul li a:hover {
+  color: white;
+} */
+
+/* .remove {
+  display: inline-block;
+  float: right;
+  width: 15px;
+  height: 15px;
+} */
 
 /* #save {
   background-color: #4c50af;
@@ -85,6 +85,41 @@ input {
   box-shadow: rgba(41, 149, 216, 0.35) 10px 25px 35px 10px;
   transform: translate3d(1px, -5px, 0px);
 } */
+
+.dash-title > li {
+  /* border: 1px solid black; */
+  padding: 12px;
+  margin: 0px 4px;
+  font-size: 24px;
+}
+.dash > li {
+  border: 1px solid black;
+  padding: 12px;
+  margin: 2px 4px;
+  height: 60px;
+}
+
+.li-1 {
+  width: 10%;
+}
+.li-2 {
+  width: 15%;
+}
+.li-3 {
+  width: 15%;
+}
+.li-4 {
+  width: 10%;
+}
+.li-5 {
+  width: 10%;
+}
+.li-6 {
+  width: 20%;
+}
+.li-7 {
+  width: 20%;
+}
 
 /* 
 #container {

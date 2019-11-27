@@ -31,7 +31,7 @@ const Login = () => {
     })
       .then(res => res.json())
       .then(data => {
-        console.log('res json from server =', data);
+        // console.log('data from server =', data);
         if (data.err) {
           setLogin(false);
           setName('Username');

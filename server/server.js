@@ -52,8 +52,10 @@ app.get('/users', (req, res) => {
   let username = req.body.username || req.cookies.username;
   knex('users')
     .where({ username })
-    .then(row => {
-      res.json(row[0]);
+    .join('applications', 'users.id', '=', 'applications.user_id')
+    .join('messages', 'applications.id', '=', 'messages.application_id')
+    .then(rows => {
+      res.json(rows);
     });
 });
 

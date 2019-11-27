@@ -7,9 +7,8 @@ const userController = {};
  * createUser - create and save a new User into the database.
  */
 userController.createUser = (req, res, next) => {
-  console.log('creating user');
   const { username, password } = req.body;
-  //   console.log(username, password)
+  //   console.log('creating user', username, password)
   knex('users')
     .insert({ username, password })
     .then(() => {
@@ -26,13 +25,10 @@ userController.createUser = (req, res, next) => {
  * against the password stored in the database.
  */
 userController.isLoggedIn = function(req, res, next) {
-  console.log('isLoggedIn');
+  // console.log('isLoggedIn');
   let { isLoggedIn } = req.cookies;
-  if (isLoggedIn) {
-    return next();
-  } else {
-    res.redirect('/');
-  }
+  if (isLoggedIn) return next();
+  else res.redirect('/');
 };
 
 userController.logOut = function(req, res, next) {
@@ -56,19 +52,15 @@ userController.checkUsernameAvailability = function(req, res, next) {
 
 userController.verifyUser = function(req, res, next) {
   const { username, password } = req.body;
-  console.log('Hit verify user', username, password);
-
+  // console.log('Hit verify user', username, password);
   knex('users')
     .where({ username, password })
     .then(rows => {
-      console.log('rows => ', rows);
+      // console.log('rows => ', rows);
       if (rows.length !== 0) {
-        console.log('Hit verify user ----> Row', rows.length);
+        // console.log('Hit verify user ----> Row', rows.length);
         res.cookie('isLoggedIn', true, { httpOnly: true });
         res.cookie('username', username, { httpOnly: true });
-        // join application data
-        // grab application data and sent next
-        // set to res.locals
         return next();
       } else {
         console.log('incorrect pass');

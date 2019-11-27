@@ -9,13 +9,15 @@ export const UserProvider = props => {
   const [dash, setDash] = useState([
     {
       company: 'company',
-      position: 'title',
+      position: 'position',
       contact: 'contact',
-      phone: 'phone',
-      email: 'email',
-      stage: 'stage',
+      // phone: 'phone',
+      // email: 'email',
+      // stage: 'stage',
+      next: 'next',
+      body: 'body',
       dueDate: 'due date',
-      comment: 'comments',
+      // comment: 'comments',
     },
   ]);
 

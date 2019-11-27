@@ -1,24 +1,38 @@
 import React, { useContext } from 'react';
 
-const DashList = ({ name, price }) => {
+const DashList = ({ company, position, contact, next, body, date }) => {
   return (
     <div>
-      <ul>
-        <li>{name}</li>
+      <ul className="dash">
+        <li className="li-1">{company}</li>
+        <li className="li-2">{position}</li>
+        <li className="li-3">{contact}</li>
+        <li className="li-4">{next}</li>
+        <li className="li-5">{body}</li>
+        <li className="li-6">{date}</li>
       </ul>
     </div>
   );
 };
 
-// {
-//   company: 'company',
-//   position: 'title',
-//   contact: 'contact',
-//   phone: 'phone',
-//   email: 'email',
-//   stage: 'stage',
-//   dueDate: 'due date',
-//   comment: 'comments',
-// },
+// [ { id: 1,
+//     username: 'foo',
+//     password: 'bar',
+//     email: 'ben.ray@gmail.com',
+//     name: 'polaris admin',
+//     created_at: 2019-11-26T04:42:01.297Z,
+//     updated_at: 2019-11-26T04:42:01.297Z,
+//     user_id: 1,
+//     url: 'http://google.com',
+//     position: 'Senior Software Engineer',
+//     company: 'Google',
+//     contact: 'Ben Ray',
+//     phone: '333-666-9999',
+//     stage: 1,
+//     next: 'Call',
+//     due_date: 2019-11-26T04:41:56.308Z,
+//     application_id: 1,
+//     message_id: null,
+//     body: 'Follow up email content.' } ]
 
 export default DashList;
