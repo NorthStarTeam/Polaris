@@ -35,6 +35,12 @@ userController.isLoggedIn = function(req, res, next) {
   }
 };
 
+userController.logOut = function(req, res, next) {
+  res.cookie('isLoggedIn', false, { httpOnly: true });
+  res.cookie('username', '', { httpOnly: true });
+  res.send('user logged out');
+};
+
 userController.checkUsernameAvailability = function(req, res, next) {
   const { username } = req.body;
   knex('users')

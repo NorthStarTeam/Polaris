@@ -20,6 +20,8 @@ app.post('/login', userController.verifyUser, (req, res) => {
   res.redirect('/users');
 });
 
+app.post('/logout', userController.logOut);
+
 app.post(
   '/signup',
   userController.checkUsernameAvailability,
