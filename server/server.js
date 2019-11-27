@@ -14,20 +14,20 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 knex('users').then(rows => console.log(rows));
 // need to add middleware, userControl function
-app.post('/login', 
-userController.verifyUser,
-(req, res) => {
-  res.redirect('/users');
-});
+app.post('/login',
+  userController.verifyUser,
+  (req, res) => {
+    res.redirect('/users');
+  });
 
 app.post('/logout', userController.logOut);
 
 app.post('/signup',
-userController.checkUsernameAvailability,
-userController.createUser,
-(req, res) => {
-  res.redirect('/users');
-});
+  userController.checkUsernameAvailability,
+  userController.createUser,
+  (req, res) => {
+    res.redirect('/users');
+  });
 
 //serve the bundle.js as a static file first
 app.use(express.static(path.resolve(__dirname, '../polaris')));
@@ -47,16 +47,17 @@ app.use('/style', (req, res) => {
 
 app.use('*', userController.isLoggedIn);
 
+
 app.get('/users', (req, res) => {
   let username = req.body.username || req.cookies.username
   knex('users')
     .where({ username })
-    .then(row => {
-      res.json(row[0])
+    .join('applications', 'users.id', '=', 'applications.user_id')
+    .join('messages', 'users.id', '=', 'messages.user_id')  
+    .then(rows => {
+      res.json(rows)
     })
 });
-
-
 
 //error out if nothing is working
 app.use('*', (req, res, next) => {

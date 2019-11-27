@@ -22,10 +22,11 @@ const Login = () => {
       method: 'POST',
       body: JSON.stringify({ username, password }),
     })
+      .then(data => data.json())
       .then(res => {
         console.log(`username is: ${username}`);
         console.log('res', res);
-        // this.setState({ loggedin: res });
+        
       });
   };
 
