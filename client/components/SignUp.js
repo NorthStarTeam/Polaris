@@ -35,7 +35,7 @@ const SignUp = () => {
     return (
       <Redirect
         to={{
-          pathname: '/profile',
+          pathname: '/dashboard',
         }}
       />
     );
@@ -59,7 +59,7 @@ const SignUp = () => {
             value={password}
             onChange={handleInputPass}
           />
-          <input className="signup-button" type="submit" value="Signup"></input>
+          <input className="button" type="submit" value="Signup"></input>
         </form>
       </div>
     </div>

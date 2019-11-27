@@ -61,10 +61,17 @@ input {
   margin: 10px auto;
   width: 25%;
 }
-input .login-button {
-  height: 50px;
-  /* font-size: 24px;
-  padding: 6px; */
+.button {
+  padding: 15px;
+  margin: 0;
+  background-color: #1c8cd2;
+  /* border: none; */
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 /* #save {

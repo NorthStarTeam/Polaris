@@ -6,6 +6,18 @@ export const UserProvider = props => {
   const [username, setName] = useState('');
   const [password, setPass] = useState('');
   const [isLogin, setLogin] = useState(false);
+  const [dash, setDash] = useState([
+    {
+      company: 'company',
+      position: 'title',
+      contact: 'contact',
+      phone: 'phone',
+      email: 'email',
+      stage: 'stage',
+      dueDate: 'due date',
+      comment: 'comments',
+    },
+  ]);
 
   const userObj = {
     username,
@@ -14,6 +26,8 @@ export const UserProvider = props => {
     setPass,
     isLogin,
     setLogin,
+    dash,
+    setDash,
   };
 
   return (

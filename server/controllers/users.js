@@ -66,6 +66,9 @@ userController.verifyUser = function(req, res, next) {
         console.log('Hit verify user ----> Row', rows.length);
         res.cookie('isLoggedIn', true, { httpOnly: true });
         res.cookie('username', username, { httpOnly: true });
+        // join application data
+        // grab application data and sent next
+        // set to res.locals
         return next();
       } else {
         console.log('incorrect pass');

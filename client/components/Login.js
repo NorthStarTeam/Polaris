@@ -4,7 +4,16 @@ import { UserContext } from './AccState';
 
 const Login = () => {
   const userObj = useContext(UserContext);
-  const { username, setName, password, setPass, isLogin, setLogin } = userObj;
+  const {
+    username,
+    setName,
+    password,
+    setPass,
+    isLogin,
+    setLogin,
+    dash,
+    setDash,
+  } = userObj;
 
   const handleInputName = event => {
     setName(event.target.value);
@@ -22,12 +31,15 @@ const Login = () => {
     })
       .then(res => res.json())
       .then(data => {
-        // console.log('res from server =', data);
+        console.log('res json from server =', data);
         if (data.err) {
           setLogin(false);
           setName('Username');
           setPass('Password');
-        } else setLogin(true);
+        } else {
+          setLogin(true);
+          setDash(data); // display data to dashboard
+        }
       });
   };
 
@@ -35,7 +47,8 @@ const Login = () => {
     return (
       <Redirect
         to={{
-          pathname: '/profile',
+          pathname: '/dashboard',
+          // dashboard
           // state: { from: location },
         }}
       />
@@ -61,7 +74,7 @@ const Login = () => {
             onChange={handleInputPass}
           ></input>
           {/* Submit Login Request */}
-          <input className="login-button" type="submit" value="Login"></input>
+          <input className="button" type="submit" value="Login"></input>
         </form>
       </div>
     </div>
