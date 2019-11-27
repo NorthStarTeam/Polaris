@@ -26,12 +26,54 @@ describe('Express Server Testing', () => {
             .send({username: 'foo23', password: 'bar'})
             .set('Accept', 'application/json')
 
-            // console.log('inside test', res)
             expect(res.status).toBe(302)
-            // expect(res.body.username).toBe('foo23')
-            // expect(res.body.username).toBe('bar')
             done()
         });
+
+
+        it('fails with wrong credentials', async done => {
+            const res = await request.post('/login')
+            .send({username: 'wrong', password: 'wrong'})
+            .set('Accept', 'application/json')
+
+            expect(res.status).toBe(200)
+            expect(res.text).toBe('Invalid username or password')
+            done()
+        });
+    })
+
+    describe('/signup  scenarios', () => {
+
+        //need to figure out how to delete the 'unique username from the database'
+        // it('succeeds with unique username', async done => {
+        //     const res = await request.post('/signup')
+        //     .send({username: 'bentest', password: 'bar'})
+        //     .set('Accept', 'application/json')
+
+        //     expect(res.status).toBe(302)
+        //     done()
+        // });
+
+
+        it('fails with duplicate username', async done => {
+            const res = await request.post('/signup')
+            .send({username: 'foo23', password: 'unique'})
+            .set('Accept', 'application/json')
+
+            expect(res.status).toBe(200)
+            expect(res.text).toBe('Username not available')
+            done()
+        });
+
+        // it('succeeds with duplicate password', async done => {
+        //     const res = await request.post('/login')
+        //     .send({username: 'wrong', password: 'wrong'})
+        //     .set('Accept', 'application/json')
+
+        //     expect(res.status).toBe(200)
+        //     expect(res.text).toBe('Invalid username or password')
+        //     done()
+        // });
     })
     
 
