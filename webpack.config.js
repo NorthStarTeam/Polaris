@@ -6,9 +6,12 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, './polaris'),
     filename: 'bundle.js',
+    publicPath: '/',
   },
   devServer: {
     publicPath: '/polaris/',
+    watchContentBase: true,
+    historyApiFallback: true,
     hot: true,
     port: 8080,
     proxy: [

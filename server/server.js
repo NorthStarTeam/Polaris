@@ -1,6 +1,5 @@
 const express = require('express');
 const path = require('path');
-const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const dbConfig = require('../knexfile');
 const knex = require('knex')(dbConfig.development);
@@ -46,7 +45,7 @@ app.use('/style', (req, res) => {
     .sendFile(path.resolve(__dirname, '../client/style.css'));
 });
 
-app.use('*', userController.isLoggedIn);
+// app.use('*', userController.isLoggedIn);
 
 app.get('/users', (req, res) => {
   let username = req.body.username || req.cookies.username;

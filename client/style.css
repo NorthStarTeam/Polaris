@@ -97,6 +97,14 @@ ul li a:hover {
   padding: 12px;
   margin: 2px 4px;
   height: 60px;
+  border-radius: 5px;
+  /* border: 1px solid grey; */
+  transition: all 0.3s ease-in-out;
+}
+.dash > li:hover {
+  cursor: pointer;
+  box-shadow: rgba(63, 132, 186, 0.25) 5px 8px 15px 5px;
+  transform: translate3d(0px, -5px, 0px);
 }
 
 .li-1 {
