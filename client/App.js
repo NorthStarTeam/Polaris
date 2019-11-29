@@ -1,6 +1,6 @@
 import React from 'react';
 import { UserProvider } from './components/AccState';
-import { HashRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Header from './components/Header';
 import Home from './components/Home';
 import Login from './components/Login';
@@ -10,7 +10,7 @@ import Dashboard from './components/Dashboard';
 function App() {
   return (
     <UserProvider>
-      <HashRouter>
+      <BrowserRouter>
         <Header />
         <Switch>
           <Route path="/" component={Home} exact />
@@ -21,7 +21,7 @@ function App() {
           <Route path="/logout" component={Login} exact />
           <Route path="/setting" component={SignUp} exact />
         </Switch>
-      </HashRouter>
+      </BrowserRouter>
     </UserProvider>
   );
 }

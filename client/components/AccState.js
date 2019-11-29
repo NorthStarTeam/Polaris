@@ -11,13 +11,10 @@ export const UserProvider = props => {
       company: 'company',
       position: 'position',
       contact: 'contact',
-      // phone: 'phone',
-      // email: 'email',
-      // stage: 'stage',
-      next: 'next',
-      body: 'body',
-      dueDate: 'due date',
-      // comment: 'comments',
+      phone: 'phone',
+      due_date: 'due date',
+      next: 'follow up',
+      body: 'comment',
     },
   ]);
 

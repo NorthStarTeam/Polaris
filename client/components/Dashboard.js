@@ -8,32 +8,47 @@ const Dashboard = () => {
   return (
     <div>
       <h1>Dashboard</h1>
-      <ul className="dash-title">
-        <li className="li-1">Company</li>
-        <li className="li-2">Position</li>
-        <li className="li-3">Contact</li>
-        <li className="li-4">next</li>
-        <li className="li-5">body</li>
-        <li className="li-6">date</li>
-      </ul>
-      {dash.map(item => (
-        <DashList
-          company={item.company}
-          position={item.position}
-          contact={item.contact}
-          next={item.next}
-          body={item.body}
-          date={item.due_date}
-          key={item.id * 1}
-        />
-      ))}
+      <table className="dash-table">
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Position</th>
+            <th>Contact</th>
+            <th>Phone</th>
+            <th>Due Date</th>
+            <th>Follow Up</th>
+            <th>Comment</th>
+          </tr>
+        </thead>
+        <tbody>
+          {dash.map(item => (
+            <DashList
+              company={item.company}
+              position={item.position}
+              contact={item.contact}
+              phone={item.phone}
+              date={item.due_date}
+              next={item.next}
+              body={item.body}
+              key={item.id * 1}
+            />
+          ))}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>Company</td>
+            <td>Position</td>
+            <td>Contact</td>
+            <td>Phone</td>
+            <td>Due Date</td>
+            <td>Follow Up</td>
+            <td>Comment</td>
+          </tr>
+        </tfoot>
+      </table>
     </div>
   );
 };
-
-{
-  /* <tr> <th scope="row">Temp</th> <td>73</td> <td>81</td> </tr> */
-}
 
 // [ { id: 1,
 //     username: 'foo',

@@ -4,6 +4,7 @@
   box-sizing: border-box;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+
 body {
   text-align: center;
 }
@@ -17,13 +18,13 @@ body {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-bottom: 10px;
   background: rgba(240, 239, 239, 0.961);
   /* @media (max-width: 600px) {
     justify-content: center;
     flex-direction: column;
   } */
 }
-
 ul {
   list-style-type: none;
   display: flex;
@@ -31,7 +32,6 @@ ul {
   margin: 0;
   padding: 0;
 }
-
 li {
   text-decoration: none;
   display: inline-block;
@@ -62,6 +62,31 @@ input {
   cursor: pointer;
 }
 
+table {
+  display: inline-block;
+  align-items: center;
+}
+
+th {
+  /* border: 1px solid black; */
+  padding: 12px;
+  font-size: 20px;
+}
+td {
+  padding: 12px;
+  font-size: 16px;
+  padding: 12px;
+  height: auto;
+  border-radius: 5px;
+  border: 1px solid grey;
+  transition: all 0.3s ease-in-out;
+}
+td:hover {
+  cursor: pointer;
+  box-shadow: rgba(63, 132, 186, 0.25) 5px 8px 15px 5px;
+  transform: translate3d(0px, -2.5px, 0px);
+}
+
 /*
 ul li a:hover {
   color: white;
@@ -73,61 +98,6 @@ ul li a:hover {
   width: 15px;
   height: 15px;
 } */
-
-/* #save {
-  background-color: #4c50af;
-  max-width: 20%;
-  transition: all 0.3s ease-in-out;
-}
-#save:hover {
-  cursor: pointer;
-  border: 1px solid rgba(21, 83, 175, 0.25);
-  box-shadow: rgba(41, 149, 216, 0.35) 10px 25px 35px 10px;
-  transform: translate3d(1px, -5px, 0px);
-} */
-
-.dash-title > li {
-  /* border: 1px solid black; */
-  padding: 12px;
-  margin: 0px 4px;
-  font-size: 24px;
-}
-.dash > li {
-  border: 1px solid black;
-  padding: 12px;
-  margin: 2px 4px;
-  height: 60px;
-  border-radius: 5px;
-  /* border: 1px solid grey; */
-  transition: all 0.3s ease-in-out;
-}
-.dash > li:hover {
-  cursor: pointer;
-  box-shadow: rgba(63, 132, 186, 0.25) 5px 8px 15px 5px;
-  transform: translate3d(0px, -5px, 0px);
-}
-
-.li-1 {
-  width: 10%;
-}
-.li-2 {
-  width: 15%;
-}
-.li-3 {
-  width: 15%;
-}
-.li-4 {
-  width: 10%;
-}
-.li-5 {
-  width: 10%;
-}
-.li-6 {
-  width: 20%;
-}
-.li-7 {
-  width: 20%;
-}
 
 /* 
 #container {
