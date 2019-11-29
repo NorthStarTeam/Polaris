@@ -5,6 +5,8 @@ const cookieParser = require('cookie-parser');
 const dbConfig = require('../knexfile');
 const knex = require('knex')(dbConfig.development);
 const userController = require('./controllers/users');
+const appController = require('./controllers/applications');
+const msgController = require('./controllers/messages');
 require('dotenv').config();
 
 const app = express();
@@ -68,6 +70,12 @@ app.get('/users', (req, res) => {
       res.json(rows)
     })
 });
+
+app.post('/message',(req, res) => {
+  res.redirect('/users');
+})
+
+app.post('application', )
 
 //error out if nothing is working
 app.use('*', (req, res, next) => {
