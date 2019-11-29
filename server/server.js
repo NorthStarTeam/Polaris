@@ -71,7 +71,7 @@ app.post(
   }
 );
 
-// app.use('*', userController.isLoggedIn);
+app.use('*', userController.isLoggedIn);
 
 
 app.get('/users', (req, res) => {
@@ -85,11 +85,29 @@ app.get('/users', (req, res) => {
     })
 });
 
-app.post('/message',(req, res) => {
+app.post('/message', msgController.createMsg, (req, res) => {
   res.redirect('/users');
-})
+});
 
-app.post('application', )
+app.put('/message', msgController.updateMsg, (req, res) => {
+  res.redirect('/users');
+});
+
+app.delete('/message', msgController.delMsg, (req, res) => {
+  res.redirect('/users');
+});
+
+app.post('/application', appController.createApp, (req, res) => {
+  res.redirect('/users');
+});
+
+app.put('/application', appController.updateApp, (req, res) => {
+  res.redirect('/users');
+});
+
+app.delete('/application', appController.delApp, (req, res) => {
+  res.redirect('/users');
+});
 
 //error out if nothing is working
 app.use('*', (req, res, next) => {
