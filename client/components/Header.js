@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { UserContext } from './AccState';
 
 const Header = () => {
-  return (
-    <div className="div-ul">
+  const userObj = useContext(UserContext);
+  const { isLogin } = userObj;
+
+  const headerLeft = () => {
+    return (
       <ul className="link-left">
         <li>
           <Link to="/">Polaris</Link>
@@ -12,17 +16,38 @@ const Header = () => {
           <Link to="/about">About</Link>
         </li>
       </ul>
+    );
+  };
 
-      <ul className="link-right">
-        <li>
-          <Link to="/signup">Join</Link>
-        </li>
-        <li>
-          <Link to="/login">Login</Link>
-        </li>
-      </ul>
-    </div>
-  );
+  if (isLogin) {
+    return (
+      <div className="div-ul">
+        {headerLeft()}
+        <ul className="link-right">
+          <li>
+            <Link to="/logout">LogOut</Link>
+          </li>
+          <li>
+            <Link to="/setting">Settings</Link>
+          </li>
+        </ul>
+      </div>
+    );
+  } else {
+    return (
+      <div className="div-ul">
+        {headerLeft()}
+        <ul className="link-right">
+          <li>
+            <Link to="/signup">Join</Link>
+          </li>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+        </ul>
+      </div>
+    );
+  }
 };
 
 export default Header;
