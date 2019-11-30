@@ -16,28 +16,12 @@ app.use(cookieParser());
 // knex('users').then(rows => console.log(rows));
 
 knex('users')
-.where({ username:'foo' })
-.join('applications', 'users.id', '=', 'applications.user_id')
-.join('messages', 'applications.id', '=', 'messages.application_id')  
-.then(rows => {
-  console.log(rows)
-  // res.json(rows)
-})
-
-// need to add middleware, userControl function
-app.post('/login',
-  userController.verifyUser,
-  (req, res) => {
-    res.redirect('/users');
-  });
-
-app.post('/logout', userController.logOut);
-
-app.post('/signup',
-  userController.checkUsernameAvailability,
-  userController.createUser,
-  (req, res) => {
-    res.redirect('/users');
+  .where({ username: 'foo' })
+  .join('applications', 'users.id', '=', 'applications.user_id')
+  .join('messages', 'applications.id', '=', 'messages.application_id')
+  .then(rows => {
+    console.log(rows.length);
+    // res.json(rows)
   });
 
 //serve the bundle.js as a static file first
@@ -73,16 +57,15 @@ app.post(
 
 app.use('*', userController.isLoggedIn);
 
-
 app.get('/users', (req, res) => {
   let username = req.body.username || req.cookies.username;
   knex('users')
     .where({ username })
     .join('applications', 'users.id', '=', 'applications.user_id')
-    .join('messages', 'applications.id', '=', 'messages.application_id')  
+    .join('messages', 'applications.id', '=', 'messages.application_id')
     .then(rows => {
-      res.json(rows)
-    })
+      res.json(rows);
+    });
 });
 
 app.post('/message', msgController.createMsg, (req, res) => {
@@ -109,10 +92,14 @@ app.delete('/application', appController.delApp, (req, res) => {
   res.redirect('/users');
 });
 
-//error out if nothing is working
-app.use('*', (req, res, next) => {
-  console.log(`couldn't find anything`);
-  res.status(404).send(`<h1>Page Doesn't Exist</h1>`);
+// Handle CSR catch all
+app.get('/*', (req, res) =>
+  res.status(200).sendFile(path.join(__dirname, '../index.html'))
+);
+
+app.all((err, req, res, next) => {
+  console.log('global error', err);
+  res.status(500).send('Internal Server Error');
 });
 
 const port = process.env.PORT || 3000;

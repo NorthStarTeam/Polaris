@@ -18,6 +18,41 @@ export const UserProvider = props => {
     },
   ]);
 
+  const [company, setCompany] = useState([
+    {
+      id: 1,
+      company: 'company1',
+      position: 'position1',
+      contact: 'contact1',
+      phone: 'phone1',
+      due_date: 'due date1',
+      next: 'follow up1',
+      body: 'comment1',
+    },
+    {
+      id: 2,
+      company: 'company2',
+      position: 'position2',
+      contact: 'contact2',
+      phone: 'phone2',
+      due_date: 'due date2',
+      next: 'follow up2',
+      body: 'comment2',
+    },
+    {
+      id: 3,
+      company: 'company3',
+      position: 'position3',
+      contact: 'contact3',
+      phone: 'phone3',
+      due_date: 'due date3',
+      next: 'follow up3',
+      body: 'comment3',
+    },
+  ]);
+
+  const [filTxt, setFilTxt] = useState('');
+
   const userObj = {
     username,
     setName,
@@ -27,6 +62,10 @@ export const UserProvider = props => {
     setLogin,
     dash,
     setDash,
+    company,
+    setCompany,
+    filTxt,
+    setFilTxt,
   };
 
   return (

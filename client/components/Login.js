@@ -13,6 +13,8 @@ const Login = () => {
     setLogin,
     dash,
     setDash,
+    company,
+    setCompany,
   } = userObj;
 
   const handleInputName = event => {
@@ -38,7 +40,8 @@ const Login = () => {
           setPass('Password');
         } else {
           setLogin(true);
-          setDash(data); // display data to dashboard
+          // setDash(data); // display data to dashboard
+          setCompany(data);
         }
       });
   };

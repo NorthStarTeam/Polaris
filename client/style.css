@@ -40,7 +40,8 @@ li {
   font-size: 18px;
 }
 
-input {
+form > input,
+.search {
   display: flex;
   justify-content: center;
   align-content: center;
@@ -49,7 +50,7 @@ input {
   margin: 10px auto;
   width: 25%;
 }
-.button {
+form > .button {
   padding: 15px;
   margin: 0;
   background-color: #1c8cd2;
@@ -66,17 +67,50 @@ table {
   display: inline-block;
   align-items: center;
 }
+.btn-Add {
+  /* display: flex;
+  display: inline-block;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  text-decoration: none; */
+  font-size: 22px;
+  padding: 6px;
+  margin: 10px auto;
+  width: 25%;
+
+  background-color: #1c8cd2;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid #1c8cd2;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.btn-Add:hover {
+  cursor: pointer;
+  box-shadow: rgba(63, 132, 186, 0.25) 5px 8px 15px 5px;
+  transform: translate3d(0px, -2.5px, 0px);
+}
 
 th {
   /* border: 1px solid black; */
-  padding: 12px;
+  padding: 3px;
   font-size: 20px;
 }
+td > input {
+  border-radius: 5px;
+  border: none;
+  font-size: 14px;
+  padding: 6px;
+}
+td > .del-btn {
+  width: 100%;
+  cursor: pointer;
+  color: red;
+}
 td {
-  padding: 12px;
-  font-size: 16px;
-  padding: 12px;
-  height: auto;
+  font-size: 14px;
+  padding: 0.5px;
   border-radius: 5px;
   border: 1px solid grey;
   transition: all 0.3s ease-in-out;
