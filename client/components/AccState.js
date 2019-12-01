@@ -20,7 +20,7 @@ export const UserProvider = props => {
 
   const [company, setCompany] = useState([
     {
-      id: 1,
+      id: 0,
       company: 'company1',
       position: 'position1',
       contact: 'contact1',
@@ -30,7 +30,7 @@ export const UserProvider = props => {
       body: 'comment1',
     },
     {
-      id: 2,
+      id: 1,
       company: 'company2',
       position: 'position2',
       contact: 'contact2',
@@ -40,7 +40,7 @@ export const UserProvider = props => {
       body: 'comment2',
     },
     {
-      id: 3,
+      id: 2,
       company: 'company3',
       position: 'position3',
       contact: 'contact3',

@@ -8,17 +8,17 @@ const Dashboard = () => {
   const userObj = useContext(UserContext);
   const { company, setCompany, filTxt, setFilTxt } = userObj;
 
-  const handleUserInput = filterText => {
-    setFilTxt(filterText);
-  };
+  const handleUserInput = filterText => setFilTxt(filterText);
+
   const handleRowDel = product => {
     const index = company.indexOf(product);
     company.splice(index, 1);
     setCompany([...company]);
   };
+
   const handleAddEvent = evt => {
     const id = (+new Date() + Math.floor(Math.random() * 999999)).toString(36);
-    const product = {
+    const newRow = {
       id: id,
       company: '',
       position: '',
@@ -28,39 +28,27 @@ const Dashboard = () => {
       next: '',
       body: '',
     };
-    setCompany([...company, product]);
+    setCompany([...company, newRow]);
   };
 
-  const handleTable = evt => {
-    const item = {
-      id: evt.target.id,
-      name: evt.target.name,
-      value: evt.target.value,
-      // company: evt.target.company,
-      // position: evt.target.position,
-      // contact: evt.target.contact,
-      // phone: evt.target.phone,
-      // due_date: evt.target.due_date,
-      // next: evt.target.next,
-      // body: evt.target.body,
-    };
+  const handleTable = e => {
     const products = company.slice();
     const newProducts = products.map(elem => {
       for (let key in elem) {
-        if (key === item.name && elem.id === item.id) {
-          elem[key] = item.value;
+        if (key === e.target.name && elem.id === e.target.id) {
+          console.log('inside =>', elem.id, e.target.id, e.target.value);
+          elem[key] = e.target.value;
         }
       }
       return elem;
     });
     setCompany([...newProducts]);
-    console.log('new-company', company);
+    // console.log('new-company', company);
   };
 
   return (
     <div>
       <h1>Dashboard</h1>
-
       <SearchBar filTxt={filTxt} onUserInput={handleUserInput} />
       <DashTable
         onTableUpdate={handleTable}

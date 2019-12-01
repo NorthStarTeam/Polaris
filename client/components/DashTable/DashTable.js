@@ -3,7 +3,13 @@ import DashRow from './DashRow';
 
 const DashTable = ({ onTableUpdate, onRowAdd, onRowDel, company, filTxt }) => {
   const row = company.map(elem => {
-    if (elem.position.indexOf(filTxt) === -1) return;
+    if (
+      elem.company.indexOf(filTxt) === -1 &&
+      elem.position.indexOf(filTxt) === -1 &&
+      elem.contact.indexOf(filTxt) === -1
+    )
+      return;
+
     return (
       <DashRow
         onTableUpdate={onTableUpdate}
