@@ -39,11 +39,22 @@ const Dashboard = () => {
           console.log('inside =>', elem.id, e.target.id, e.target.value);
           elem[key] = e.target.value;
         }
+        // e.preventDefault();
+        // fetch('/message', {
+        //   headers: { 'Content-type': 'application/json' },
+        //   method: 'PUT',
+        //   body: JSON.stringify({ id: e.target.id }),
+        // })
+        //   .then(res => res.json())
+        //   .then(data => {
+        //     console.log('data from server =', data);
+        //     setCompany([...newProducts]);
+        //     console.log('new-company', company);
+        //   });
       }
       return elem;
     });
     setCompany([...newProducts]);
-    // console.log('new-company', company);
   };
 
   return (
