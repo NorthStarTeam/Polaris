@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignUp SignUp renders correctly 1`] = `
+Array [
+  " ",
+  <div>
+    <h1>
+      Sign Up
+    </h1>
+    <div
+      className="signup-box"
+    >
+      <form
+        className="signup-form"
+      >
+        <input
+          className="userName"
+          name="username"
+          placeholder="Username"
+        />
+        <input
+          className="password"
+          name="password"
+          placeholder="Password"
+        />
+        <input
+          className="signup-button"
+          type="submit"
+          value="Signup"
+        />
+      </form>
+    </div>
+  </div>,
+  " ",
+]
+`;
