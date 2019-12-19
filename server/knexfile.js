@@ -9,10 +9,10 @@ module.exports = {
       max: 10,
     },
     migrations: {
-      directory: './db/migrations',
+      directory: '../db/migrations',
     },
     seeds: {
-      directory: './db/seeds/dev',
+      directory: '../db/seeds/dev',
     },
   },
 
@@ -24,7 +24,7 @@ module.exports = {
       max: 10,
     },
     migrations: {
-      directory: './db/migrations',
+      directory: '../db/migrations',
     },
   },
 };

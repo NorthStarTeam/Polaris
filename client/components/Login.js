@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Redirect } from 'react-router-dom';
-import { UserContext } from './AccState';
+import { UserContext } from '../context/AccState';
 
 const Login = () => {
   const userObj = useContext(UserContext);

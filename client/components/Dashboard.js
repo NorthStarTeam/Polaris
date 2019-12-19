@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
-import { UserContext } from './AccState';
-import DashList from './DashList';
+import { UserContext } from '../context/AccState';
 import DashTable from './DashTable/DashTable';
 import SearchBar from './DashTable/SearchBar';
 
@@ -132,3 +131,19 @@ export default Dashboard;
         </tfoot>
       </table> */
 }
+
+// const DashList = ({ company, position, contact, phone, date, next, body }) => {
+//   return (
+//     <tr className="row">
+//       <td>{company}</td>
+//       <td>{position}</td>
+//       <td>{contact}</td>
+//       <td>{phone}</td>
+//       <td>{date}</td>
+//       <td>{next}</td>
+//       <td>{body}</td>
+//     </tr>
+//   );
+// };
+
+// export default DashList;

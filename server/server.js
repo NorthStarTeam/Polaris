@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
-const dbConfig = require('../knexfile');
+const dbConfig = require('./knexfile');
 const knex = require('knex')(dbConfig.development);
 const userController = require('./controllers/users');
 const appController = require('./controllers/applications');
@@ -25,10 +25,10 @@ knex('users')
   });
 
 //serve the bundle.js as a static file first
-app.use(express.static(path.resolve(__dirname, '../polaris')));
+app.use(express.static(path.resolve(__dirname, '../bundle/bundle.js')));
 
 app.get('/', (req, res) =>
-  res.status(200).sendFile(path.join(__dirname, '../index.html'))
+  res.status(200).sendFile(path.join(__dirname, '../client/assets/index.html'))
 );
 
 // serving style.css
@@ -94,7 +94,7 @@ app.delete('/application', appController.delApp, (req, res) => {
 
 // Handle CSR catch all
 app.get('/*', (req, res) =>
-  res.status(200).sendFile(path.join(__dirname, '../index.html'))
+  res.status(200).sendFile(path.join(__dirname, '../client/assets/index.html'))
 );
 
 app.all((err, req, res, next) => {

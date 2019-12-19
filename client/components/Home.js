@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -35,3 +34,23 @@ export default Home;
 //     <i class="fa fa-facebook-official"></i> Login with Google
 //   </a>
 // </div>;
+
+// import React from 'react';
+// import { NavLink } from 'react-router-dom';
+
+// const mainNav = props => (
+//   <header className="main-nav">
+//     <nav>
+//       <ul>
+//         <li>
+//           <NavLink to="/signup">SignUp button</NavLink>
+//         </li>
+//         <li>
+//           <NavLink to="/profile">profile button</NavLink>
+//         </li>
+//       </ul>
+//     </nav>
+//   </header>
+// );
+
+// export default mainNav;

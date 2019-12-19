@@ -5,12 +5,12 @@ module.exports = {
   mode: process.env.NODE_ENV,
   entry: './client/index.js',
   output: {
-    path: path.resolve(__dirname, './polaris'),
+    path: path.resolve(__dirname, './bundle'),
     filename: 'bundle.js',
     publicPath: '/',
   },
   devServer: {
-    publicPath: '/polaris/',
+    publicPath: '/bundle/',
     watchContentBase: true,
     historyApiFallback: true,
     hot: true,
@@ -46,7 +46,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './index.html'),
+      template: path.resolve(__dirname, './client/assets/index.html'),
       filename: 'index.html',
     }),
   ],
