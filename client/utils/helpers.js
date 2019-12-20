@@ -1,3 +1,11 @@
+import styled from 'styled-components';
+
+// we create the style for the element we are trying to reach
+// you may notice all we are doing is appending the HTML tag to the styled object, from there on it's regular CSS
+export const StyledLogin = styled.div`
+  color: blue;
+`;
+
 /* Helper styles and themes for global usage */
 export const colors = {
   white: '#F5F6FD',
@@ -34,6 +42,7 @@ const MyComponentContainer = styled.div`
 `;
 export { MyComponentContainer };
 */
+
 /*
 import styled from 'styled-components';
 // we create the style for the element we are trying to reach

@@ -50,7 +50,7 @@ const TodoList = () => {
     <div className="todo-list">
       <TodosDispatch.Provider value={dispatch}>
         <Actions />
-        //...state.todos
+        {/* ...state.todos */}
       </TodosDispatch.Provider>
     </div>
   );
